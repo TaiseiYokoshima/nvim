@@ -16,6 +16,42 @@ vim.keymap.set("n", ";", "j", {noremap = true, silent = true})
 -- resets left motion
 vim.keymap.set("n", "k", "h", {noremap = true, silent = true})
 
+
+-- resets up motion
+vim.keymap.set("v", "j", "k", {noremap = true, silent = true})
+-- resets down motion
+vim.keymap.set("v", ";", "j", {noremap = true, silent = true})
+-- resets left motion
+vim.keymap.set("v", "k", "h", {noremap = true, silent = true})
+
+-- resets up motion
+vim.keymap.set("x", "j", "k", {noremap = true, silent = true})
+-- resets down motion
+vim.keymap.set("x", ";", "j", {noremap = true, silent = true})
+-- resets left motion
+vim.keymap.set("x", "k", "h", {noremap = true, silent = true})
+
+
+vim.keymap.set("o", "j", "k", {noremap = true, silent = true})
+-- resets down motion
+vim.keymap.set("o", ";", "j", {noremap = true, silent = true})
+-- resets left motion
+vim.keymap.set("o", "k", "h", {noremap = true, silent = true})
+
+vim.keymap.set("s", "j", "k", {noremap = true, silent = true})
+-- resets down motion
+vim.keymap.set("s", ";", "j", {noremap = true, silent = true})
+-- resets left motion
+vim.keymap.set("s", "k", "h", {noremap = true, silent = true})
+
+
+
+
+
+
+
+
+
 function _G.swap_default_and_clipboard()
   print("swapped")
   local default = vim.fn.getreg('"')
@@ -77,6 +113,13 @@ end
 
 
 
+
+
+
+
+
+
+
 -- system clipboard 
 -- pastes without changing what's in the yanked buffer
 vim.keymap.set("n", "<leader>v", '"+p', { noremap = true, silent = true })
@@ -84,6 +127,7 @@ vim.keymap.set("x", "<leader>v", '"_d"+p', { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>v", '"_d"+p', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>V", '"+P', { noremap = true, silent = true })
+
 vim.keymap.set("x", "<leader>V", '"_d"+P', { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>V", '"_d"+P', { noremap = true, silent = true })
 

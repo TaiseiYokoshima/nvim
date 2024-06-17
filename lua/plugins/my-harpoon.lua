@@ -9,9 +9,11 @@ return {
       local harpoon = require("harpoon")
       harpoon:setup()
 
-      vim.keymap.set("n", "<C-A>", function()
+      vim.keymap.set("n", "<C-t>", function()
         harpoon:list():add()
       end, { noremap = true, silent = true })
+
+
 
       vim.keymap.set("n", "<C-e>", function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
