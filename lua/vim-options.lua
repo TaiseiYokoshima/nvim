@@ -8,7 +8,15 @@ vim.o.autoindent = true
 
 
 
+
+
+
+
 vim.cmd("set runtimepath+=~/.config/nvim")
+
+
+vim.keymap.set("n",  "Y", ":noh<CR>", {noremap=true, silent = true})
+
 -- resets up motion
 vim.keymap.set("n", "j", "k", {noremap = true, silent = true})
 -- resets down motion
@@ -19,6 +27,8 @@ vim.keymap.set("n", "k", "h", {noremap = true, silent = true})
 
 -- resets up motion
 vim.keymap.set("v", "j", "k", {noremap = true, silent = true})
+
+
 -- resets down motion
 vim.keymap.set("v", ";", "j", {noremap = true, silent = true})
 -- resets left motion
@@ -150,6 +160,7 @@ vim.keymap.set("x", "d", '"_d', { noremap = true, silent = true})          --   
 
 vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true})          -- delete entire line
 
+
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true})         -- pasting in v or x
 vim.keymap.set("x", "p", '"_dp', { noremap = true, silent = true})         --     | 
 
@@ -181,13 +192,14 @@ vim.keymap.set("n", "<leader>ps", function()
 end)
 
 
+
 -- moves the selected text up and down
 vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 
 -- moves to next and previous search hit but keeps the cursor in the middle of the page 
 vim.keymap.set("n", "n" , "nzzzv")
-vim.keymap.set("n", "N" , "nzzzv")
+vim.keymap.set("n", "N" , "Nzzzv")
 
 vim.keymap.set("n","<CR>" , "o<Esc>", {noremap = true, silent = true})
 
@@ -207,6 +219,9 @@ vim.keymap.set("n", "<C-i>", "i", {noremap = true, silent = true})
 vim.keymap.set("i", "<Tab>", function()
   return string.match(vim.api.nvim_get_current_line(), '%g') == nil and '<Esc>cc' or '<Tab>'
 end, { expr = true, noremap = true })
+
+
+
 
 
 
