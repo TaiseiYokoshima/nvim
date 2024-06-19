@@ -36,6 +36,28 @@ return {
         harpoon:list():select(4)
       end, { noremap = true, silent = true })
 
+
+
+
+      vim.keymap.set("n", "<C-j>", function()
+        harpoon:list():select(5)
+      end, { noremap = true, silent = true })
+
+      vim.keymap.set("n", "<C-k>", function()
+        harpoon:list():select(6)
+      end, { noremap = true, silent = true })
+
+
+      vim.keymap.set("n", "<C-l>", function()
+        harpoon:list():select(7)
+      end, { noremap = true, silent = true })
+
+      vim.keymap.set("n", "<C-;>", function()
+        harpoon:list():select(8)
+      end, { noremap = true, silent = true })
+
+
+
     end,
   },
 }
