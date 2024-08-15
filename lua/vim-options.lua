@@ -137,7 +137,6 @@ vim.keymap.set("x", "<leader>v", '"_d"+p', { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>v", '"_d"+p', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>V", '"+P', { noremap = true, silent = true })
-
 vim.keymap.set("x", "<leader>V", '"_d"+P', { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>V", '"_d"+P', { noremap = true, silent = true })
 
@@ -183,6 +182,9 @@ vim.keymap.set("v", "<leader>P", 'P', { noremap = true, silent = true })   --   
 vim.keymap.set("x", "<leader>P", 'P', { noremap = true, silent = true })   --       |
 
 
+vim.keymap.set("n", "s", '"_s', { noremap = true, silent = true })
+vim.keymap.set("v", "s", '"_s', { noremap = true, silent = true })
+vim.keymap.set("x", "s", '"_s', { noremap = true, silent = true })
 
 
 
