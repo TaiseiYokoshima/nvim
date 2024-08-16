@@ -11,10 +11,6 @@ vim.o.autoindent = true
 
 
 
-
-
-
-
 vim.cmd("set runtimepath+=~/.config/nvim")
 
 
@@ -59,12 +55,6 @@ vim.keymap.set("s", "k", "h", {noremap = true, silent = true})
 
 
 
-
-
-
-
-
-
 function _G.swap_default_and_clipboard()
   print("swapped")
   local default = vim.fn.getreg('"')
@@ -100,8 +90,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- to go up and down half page but keeps the cursor in the middle of the page
-vim.api.nvim_set_keymap("n", "<", "<C-d>zz", { noremap = true, silent = true })
-vim.keymap.set("n", ">", "<C-u>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Left>", "<C-u>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-Right>", "<C-d>zz", { noremap = true, silent = true })
 
 
 local yank_clipboard_only = function (cmd)
