@@ -2,6 +2,9 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set cmdheight=0")
+vim.cmd("set nowrap")
+
 vim.o.smartindent = true
 vim.o.autoindent = true
 
@@ -87,7 +90,7 @@ function _G.show_registers()
 end
 
 
-vim.keymap.set("n", "<C-q>", ":lua _G.swap_default_and_clipboard()<CR>")
+-- vim.keymap.set("n", "<C-q>", ":lua _G.swap_default_and_clipboard()<CR>")
 vim.keymap.set("n", "<C-h>", ":lua _G.show_registers()<CR>")
 
 
@@ -203,7 +206,7 @@ vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n" , "nzzzv")
 vim.keymap.set("n", "N" , "Nzzzv")
 
-vim.keymap.set("n","<CR>" , "o<Esc>", {noremap = true, silent = true})
+-- vim.keymap.set("n","<CR>" , "o<Esc>", {noremap = true, silent = true})
 
 
 
