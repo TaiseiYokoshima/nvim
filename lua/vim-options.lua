@@ -19,28 +19,33 @@ vim.cmd("set runtimepath+=~/.config/nvim")
 vim.g.mapleader = " "
 
 
+local map = vim.keymap.set
+local opt = { noremap = true, silent = true }
+
+
+
 -- | uncategorized
 --
 --
-vim.keymap.set("n",  " ", "Nop", {noremap=true, silent = true})
+map("n",  " ", "Nop", opt)
 
 -- unhighlighting
-vim.keymap.set("n",  "Y", ":noh<CR>", {noremap=true, silent = true})
+map("n",  "Y", ":noh<CR>", opt)
 
 -- since ; is used for arrows
-vim.keymap.set("n", ".", ";", { noremap = true, silent = true})
+map("n", ".", ";", opt)
 
 
 -- auto indents when going into insert mode if line is empty
-vim.keymap.set("n", "i", function()
+map("n", "i", function()
   return string.match(vim.api.nvim_get_current_line(), '%g') == nil and 'cc' or 'i'
 end, { expr = true, noremap = true })
 
-vim.keymap.set("n", "<C-i>", "i", {noremap = true, silent = true})
+map("n", "<C-i>", "i", opt)
 
 -- this maps tab in insert mode so that if it indents automatically to the correct level only 
 -- if the line is empty
-vim.keymap.set("i", "<Tab>", function()
+map("i", "<Tab>", function()
   return string.match(vim.api.nvim_get_current_line(), '%g') == nil and '<Esc>cc' or '<Tab>'
 end, { expr = true, noremap = true })
 
@@ -49,31 +54,31 @@ end, { expr = true, noremap = true })
 
 -- | navigatoinal
 -- moves the selected text up and down
-vim.keymap.set("x", "<S-Down>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("x", "<S-Up>", ":m '<-2<CR>gv=gv")
+map("x", "<S-Down>", ":m '>+1<CR>gv=gv", opt)
+map("x", "<S-Up>", ":m '<-2<CR>gv=gv", opt)
 
 -- moves to next and previous search hit but keeps the cursor in the middle of the page 
-vim.keymap.set("n", "n" , "nzzzv")
-vim.keymap.set("n", "N" , "Nzzzv")
+map("n", "n" , "nzzzv", opt)
+map("n", "N" , "Nzzzv", opt)
 
 
 -- jumping places back and forth
-vim.keymap.set("n", "<leader>o", "<C-o>", { noremap = true, silent = true})
-vim.keymap.set("n",  "<leader>i", "<C-i>", { noremap = true, silent = true})
+map("n", "<leader>o", "<C-o>", opt)
+map("n",  "<leader>i", "<C-i>", opt)
 
 -- to go up and down half page but keeps the cursor in the middle of the page
-vim.keymap.set("n", "<C-Left>", "<C-u>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-Right>", "<C-d>zz", { noremap = true, silent = true })
+map("n", "<C-Left>", "<C-u>zz", opt)
+map("n", "<C-Right>", "<C-d>zz", opt)
 
 
 -- | panes
-vim.keymap.set("n", "<leader>k", "<C-w>h", { noremap = true, silent = true})
-vim.keymap.set("n", "<leader>l", "<C-w>l", { noremap = true, silent = true})
-vim.keymap.set("n", "<leader>j", "<C-w>k", { noremap = true, silent = true})
-vim.keymap.set("n", "<leader>;", "<C-w>j", { noremap = true, silent = true})
-vim.keymap.set("n", "<C-=>", ":vertical resize +1<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<C-->", ":vertical resize -1<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<leader>s", ":vsplit<CR>", { noremap = true, silent = true})
+map("n", "<leader>k", "<C-w>h", opt)
+map("n", "<leader>l", "<C-w>l", opt)
+map("n", "<leader>j", "<C-w>k", opt)
+map("n", "<leader>;", "<C-w>j", opt)
+map("n", "<C-=>", ":vertical resize +1<CR>", opt)
+map("n", "<C-->", ":vertical resize -1<CR>", opt)
+map("n", "<leader>s", ":vsplit<CR>", opt)
 
 
 
@@ -81,40 +86,40 @@ vim.keymap.set("n", "<leader>s", ":vsplit<CR>", { noremap = true, silent = true}
 
 -- motion keys
 -- resets up motion
-vim.keymap.set("n", "j", "k", {noremap = true, silent = true})
+map("n", "j", "k", opt)
 -- resets down motion
-vim.keymap.set("n", ";", "j", {noremap = true, silent = true})
+map("n", ";", "j", opt)
 -- resets left motion
-vim.keymap.set("n", "k", "h", {noremap = true, silent = true})
+map("n", "k", "h", opt)
 
 
 -- resets up motion
-vim.keymap.set("v", "j", "k", {noremap = true, silent = true})
+map("v", "j", "k", opt)
 -- resets down motion
-vim.keymap.set("v", ";", "j", {noremap = true, silent = true})
+map("v", ";", "j", opt)
 -- resets left motion
-vim.keymap.set("v", "k", "h", {noremap = true, silent = true})
+map("v", "k", "h", opt)
 
 -- resets up motion
-vim.keymap.set("x", "j", "k", {noremap = true, silent = true})
+map("x", "j", "k", opt)
 -- resets down motion
-vim.keymap.set("x", ";", "j", {noremap = true, silent = true})
+map("x", ";", "j", opt)
 -- resets left motion
-vim.keymap.set("x", "k", "h", {noremap = true, silent = true})
+map("x", "k", "h", opt)
 
 
-vim.keymap.set("o", "j", "k", {noremap = true, silent = true})
+map("o", "j", "k", opt)
 -- resets down motion
-vim.keymap.set("o", ";", "j", {noremap = true, silent = true})
+map("o", ";", "j", opt)
 -- resets left motion
-vim.keymap.set("o", "k", "h", {noremap = true, silent = true})
+map("o", "k", "h", opt)
 
 
-vim.keymap.set("s", "j", "k", {noremap = true, silent = true})
+map("s", "j", "k", opt)
 -- resets down motion
-vim.keymap.set("s", ";", "j", {noremap = true, silent = true})
+map("s", ";", "j", opt)
 -- resets left motion
-vim.keymap.set("s", "k", "h", {noremap = true, silent = true})
+map("s", "k", "h", opt)
 
 
 
@@ -140,7 +145,7 @@ function _G.show_registers()
   print(clipboard_str)
 end
 
-vim.keymap.set("n", "<C-h>", ":lua _G.show_registers()<CR>")
+map("n", "<C-h>", ":lua _G.show_registers()<CR>")
 
 
 
@@ -153,21 +158,21 @@ end
 
 -- system clipboard 
 -- pastes without changing what's in the yanked buffer
-vim.keymap.set('n', '<leader>cc', function() yank_clipboard_only('normal! "+yy') end, {noremap = true, silent = true})
-vim.keymap.set('v', '<leader>c', function() yank_clipboard_only('normal! "+y') end, {noremap = true, silent = true})
-vim.keymap.set('x', '<leader>c', function() yank_clipboard_only('normal! "+y') end, {noremap = true, silent = true})
+map('n', '<leader>cc', function() yank_clipboard_only('normal! "+yy') end, opt)
+map('v', '<leader>c', function() yank_clipboard_only('normal! "+y') end, opt)
+map('x', '<leader>c', function() yank_clipboard_only('normal! "+y') end, opt)
 
-vim.keymap.set("n", "<leader>v", '"+p', { noremap = true, silent = true })
-vim.keymap.set("x", "<leader>v", '"_d"+p', { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>v", '"_d"+p', { noremap = true, silent = true })
+map("n", "<leader>v", '"+p', opt)
+map("x", "<leader>v", '"_d"+p', opt)
+map("v", "<leader>v", '"_d"+p', opt)
 
-vim.keymap.set("n", "<leader>V", '"+P', { noremap = true, silent = true })
-vim.keymap.set("x", "<leader>V", '"_d"+P', { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>V", '"_d"+P', { noremap = true, silent = true })
+map("n", "<leader>V", '"+P', opt)
+map("x", "<leader>V", '"_d"+P', opt)
+map("v", "<leader>V", '"_d"+P', opt)
 
-vim.keymap.set("n", "<C-x><C-x>", '"+yy"_dd', { noremap = true, silent = true })
-vim.keymap.set("x", "<C-x>", '"+y"_dd', { noremap = true, silent = true })
-vim.keymap.set("v", "<C-x>", '"+y"_dd', { noremap = true, silent = true })
+map("n", "<C-x><C-x>", '"+yy"_dd', opt)
+map("x", "<C-x>", '"+y"_dd', opt)
+map("v", "<C-x>", '"+y"_dd', opt)
 
 
 
@@ -181,37 +186,37 @@ vim.keymap.set("v", "<C-x>", '"+y"_dd', { noremap = true, silent = true })
 -- | yank register  
 
 -- remaps so that deleting will not change yank register
-vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true})          -- replacing one char
+map("n", "x", '"_x', opt)          -- replacing one char
 
-vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true})          -- deleting
-vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true})          --    |
-vim.keymap.set("x", "d", '"_d', { noremap = true, silent = true})          --    |
+map("n", "d", '"_d', opt)          -- deleting
+map("v", "d", '"_d', opt)          --    |
+map("x", "d", '"_d', opt)          --    |
 
-vim.keymap.set("n", "D", '"_D', { noremap = true, silent = true})          -- delete entire line
-
-
-vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true})         -- pasting in v or x
-vim.keymap.set("x", "p", '"_dp', { noremap = true, silent = true})         --     | 
-
-vim.keymap.set("v", "P", '"_dP', { noremap = true, silent = true})         -- pasting before in v or x
-vim.keymap.set("x", "P", '"_dP', { noremap = true, silent = true})         --     |
+map("n", "D", '"_D', opt)          -- delete entire line
 
 
-vim.keymap.set("n", "<leader>x", 'x', { noremap = true, silent = true })   -- the normals is set to use with leader
+map("v", "p", '"_dp', opt)         -- pasting in v or x
+map("x", "p", '"_dp', opt)         --     | 
+
+map("v", "P", '"_dP', opt)         -- pasting before in v or x
+map("x", "P", '"_dP', opt)         --     |
+
+
+map("n", "<leader>x", 'x', opt)   -- the normals is set to use with leader
                                                                            --       |
-vim.keymap.set("n", "<leader>d", 'd', { noremap = true, silent = true })   --       |
-vim.keymap.set("v", "<leader>d", 'd', { noremap = true, silent = true })   --       |
-vim.keymap.set("x", "<leader>d", 'd', { noremap = true, silent = true })   --       |
+map("n", "<leader>d", 'd', opt)   --       |
+map("v", "<leader>d", 'd', opt)   --       |
+map("x", "<leader>d", 'd', opt)   --       |
                                                                            --       |
-vim.keymap.set("n", "<leader>D", 'D', { noremap = true, silent = true })   --       |
+map("n", "<leader>D", 'D', opt)   --       |
                                                                            --       |
-vim.keymap.set("v", "<leader>p", 'p', { noremap = true, silent = true })   --       |
-vim.keymap.set("x", "<leader>p", 'p', { noremap = true, silent = true })   --       |
+map("v", "<leader>p", 'p', opt)   --       |
+map("x", "<leader>p", 'p', opt)   --       |
                                                                            --       |
-vim.keymap.set("v", "<leader>P", 'P', { noremap = true, silent = true })   --       |
-vim.keymap.set("x", "<leader>P", 'P', { noremap = true, silent = true })   --       |
+map("v", "<leader>P", 'P', opt)   --       |
+map("x", "<leader>P", 'P', opt)   --       |
 
 
-vim.keymap.set("n", "s", '"_s', { noremap = true, silent = true })
-vim.keymap.set("v", "s", '"_s', { noremap = true, silent = true })
-vim.keymap.set("x", "s", '"_s', { noremap = true, silent = true })
+map("n", "s", '"_s', opt)
+map("v", "s", '"_s', opt)
+map("x", "s", '"_s', opt)
