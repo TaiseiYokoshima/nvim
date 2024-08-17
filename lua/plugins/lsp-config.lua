@@ -39,10 +39,10 @@ return {
         vim.keymap.set("n", "K", function()
           vim.lsp.buf.hover()
         end, opts)
-        vim.keymap.set("n", "<leader>vws", function()
+        vim.keymap.set("n", "<leader>ws", function()
           vim.lsp.buf.workspace_symbol()
         end, opts)
-        vim.keymap.set("n", "<leader>vd", function()
+        vim.keymap.set("n", "<leader>wd", function()
           vim.diagnostic.open_float()
         end, opts)
         vim.keymap.set("n", "[d", function()
@@ -59,9 +59,6 @@ return {
         end, opts)
         vim.keymap.set("n", "<leader>rn", function()
           vim.lsp.buf.rename()
-        end, opts)
-        vim.keymap.set("i", "<C-h>", function()
-          vim.lsp.buf.signature_help()
         end, opts)
       end
 
@@ -109,11 +106,14 @@ return {
       lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 
       lspconfig.taplo.setup({ capabilities = capabilities, on_attach = on_attach })
+
       lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
+
       lspconfig.sqlls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
       })
+
       lspconfig.solargraph.setup({
         capabilities = capabilities,
         on_attach = on_attach,
