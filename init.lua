@@ -13,15 +13,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
-
-
-
-
-local config = require("nvim-treesitter.configs")
-config.setup({
-  ensure_installed = {"lua", "javascript", "python", "rust", "java", "c"},
-  highlight = { enabled = true },
-  indent = { enabled = true },
-})
-
-
+require("remaps")
