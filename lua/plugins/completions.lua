@@ -16,7 +16,8 @@ return {
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      cmp.setup({
+
+      local my_config = {
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
@@ -25,10 +26,13 @@ return {
         },
 
 
+
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+
+        view = { docs = { auto_open = false } },
 
 
 
@@ -50,6 +54,16 @@ return {
 
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-m>"] = cmp.mapping.scroll_docs(4),
+
+          ['<C-i>'] = cmp.mapping(function(fallback)
+            if cmp.visible_docs() then
+              cmp.close_docs()
+            elseif cmp.visible() then
+              cmp.open_docs()
+            else
+              fallback()
+            end
+          end),
 
 
 
@@ -90,7 +104,11 @@ return {
         }, {
           { name = "buffer" },
         }),
-      })
+      }
+
+
+    cmp.setup(my_config)
+
     end,
   },
 }

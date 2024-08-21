@@ -30,6 +30,26 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local _border = "double"
+
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover, {
+          border = _border
+        }
+      )
+
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help, {
+          border = _border
+        }
+      )
+
+      vim.diagnostic.config {
+        float = { border = _border }
+      }
+
+
+
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }
@@ -39,6 +59,8 @@ return {
         vim.keymap.set("n", "K", function()
           vim.lsp.buf.hover()
         end, opts)
+
+
         vim.keymap.set("n", "<leader>ws", function()
           vim.lsp.buf.workspace_symbol()
         end, opts)
