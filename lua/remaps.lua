@@ -30,6 +30,21 @@ end, { expr = true, noremap = true })
 
 
 
+-- | luasnips
+local ls = require("luasnip")
+-- map({"i", "s"}, "<S-Left>", function() might work better?
+map("i", "<S-Left>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end)
+
+map("i", "<S-Right>", function()
+  if ls.jumpable(1) then
+    ls.jump(1)
+  end
+end)
+
 
 -- | navigatoinal
 -- moves the selected text up and down
