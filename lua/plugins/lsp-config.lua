@@ -51,7 +51,18 @@ return {
 
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       local on_attach = function(client, bufnr)
+
+        if vim.lsp.inlay_hint then
+          vim.defer_fn(function()
+            vim.lsp.inlay_hint.enable(true, {0})
+          end, 1000)
+        end
+
+
+
+
         local opts = { buffer = bufnr, remap = false }
         vim.keymap.set("n", "gd", function()
           vim.lsp.buf.definition()
@@ -87,10 +98,11 @@ return {
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+
+
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        --        on_attach = require("plugins.configs.lspconfig").on_attach,
         filetypes = { "rust" },
         root_dir = lspconfig.util.root_pattern("Cargo.toml"),
         setttings = {
@@ -98,9 +110,16 @@ return {
             cargo = {
               allFeatures = true,
             },
+            inlayHints = {
+              enable = true,
+              showParameterNames = true,
+            }
+
+
           },
         },
       })
+
       lspconfig.tsserver.setup({
         on_attach = on_attach,
         capabilities = capabilities,
