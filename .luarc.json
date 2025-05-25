@@ -1,0 +1,21 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "add_package",
+        "run_all",
+        "run_all_with_start",
+        "run_all_except",
+        "map",
+        "opt",
+        "mode_color",
+        "vim_do",
+        "my_hls",
+        "in_zellij"
+    ],
+    "diagnostics.disable": [
+        "unused-local",
+        "redundant-value",
+        "unused-function",
+        "duplicate-index"
+    ]
+}
