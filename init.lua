@@ -6,7 +6,7 @@ vim_do("autocmds")
 require("start-lazy")
 
 
-require("fold")
+-- require("fold")
 
 
 -- run remaps

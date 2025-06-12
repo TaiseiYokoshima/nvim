@@ -1,4 +1,5 @@
 local on_attach = function(client, bufnr)
+
   if vim.lsp.inlay_hint then
     vim.defer_fn(function()
       vim.lsp.inlay_hint.enable(true, { 0 })

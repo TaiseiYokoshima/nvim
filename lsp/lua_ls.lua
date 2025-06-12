@@ -1,6 +1,5 @@
 local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = require("on_attach")
+local on_attach = require("lsp_setup.on_attach")
 
 local settings = {
    Lua = {
@@ -20,11 +19,10 @@ local settings = {
 }
 
 
+return {
+   on_attach = on_attach,
+   settings = settings
+}
 
 
--- vim.lsp.config("lua_ls", {
---    on_attach = on_attach,
---    settings = settings
--- })
 
--- vim.lsp.enable('lua_ls')
