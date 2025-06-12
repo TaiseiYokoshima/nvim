@@ -1,12 +1,10 @@
 local function config()
-   -- harpoon
    local harpoon = require("harpoon")
    harpoon:setup()
 
    vim.keymap.set("n", "<C-t>", function()
       harpoon:list():add()
    end, { noremap = true, silent = true })
-
 
 
    vim.keymap.set("n", "<C-e>", function()
@@ -54,10 +52,8 @@ end
 
 
 return {
-   {
-      "ThePrimeagen/harpoon",
-      branch = "harpoon2",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = config
-   },
+  "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = config
 }

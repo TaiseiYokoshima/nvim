@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local on_attach = require("lsp.on_attach")
+local on_attach = utils.on_attach;
 
 return {
   on_attach = on_attach,

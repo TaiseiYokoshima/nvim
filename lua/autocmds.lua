@@ -1,3 +1,4 @@
+
 vim.api.nvim_create_autocmd("ColorScheme", {
    callback = function()
       vim.cmd [[
@@ -9,14 +10,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       set guicursor=n:block-c_normal,i-c-ci:ver15-c_insert,v:block-c_visual,o:block-c_operator,r:hor30-c_replace
       ]]
 
-      vim_do("set_hl")
+      utils.run("set_hl")
    end
 })
 
 
 
 
-local _, hls, names, funcs = my_hls()
+local _, hls, names, funcs = utils.my_hls()
 local set_hl = funcs.set_hl
 
 

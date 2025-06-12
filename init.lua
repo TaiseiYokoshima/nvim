@@ -1,21 +1,20 @@
-require("utils")
+package.path = vim.fn.stdpath("config") .. "/utils/init.lua;" .. package.path
+ _G.utils = require("utils")
+
 require("vim-options")
+utils.run("autocmds")
 
-vim_do("autocmds")
-
-require("start-lazy")
-
-
--- require("fold")
+require("core.lsp")
+require("core.lazy")
 
 
 -- run remaps
-run_all_with_start("remaps", "general")
+utils.run_all_with_start("remaps", "general")
 
 
-in_zellij = not (vim.fn.getenv("ZELLIJ") == vim.NIL)
+-- in_zellij = not (vim.fn.getenv("ZELLIJ") == vim.NIL)
 -- in_zellij = false
 
-if in_zellij then
-   vim_do("zellij")
-end
+-- if in_zellij then
+--    vim_do("zellij")
+-- end

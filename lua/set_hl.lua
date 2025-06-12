@@ -1,4 +1,4 @@
-local _, hls, names, funcs = my_hls()
+local _, hls, names, funcs = utils.my_hls()
 
 local set_hl = funcs.set_hl
 

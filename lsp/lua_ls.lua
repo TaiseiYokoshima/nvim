@@ -1,5 +1,4 @@
-local on_attach = require("lsp.on_attach")
-
+local on_attach = utils.on_attach;
 local settings = {
    Lua = {
       runtime = {

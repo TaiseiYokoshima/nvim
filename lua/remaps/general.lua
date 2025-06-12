@@ -1,5 +1,5 @@
 map = vim.keymap.set
-opt = { noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 
 
 vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
@@ -55,7 +55,7 @@ vim.keymap.set("", "<ScrollWheelDown>", "<C-E>", { noremap = true, silent = true
 
 
 
-local _, hls, names, funcs = my_hls()
+local _, hls, names, funcs = utils.my_hls()
 local set_hl = funcs.set_hl
 
 
