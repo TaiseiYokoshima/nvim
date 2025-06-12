@@ -1,10 +1,8 @@
 local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = require("on_attach")
+local on_attach = require("lsp.on_attach")
 
-lspconfig.ts_ls.setup({
+return {
   on_attach = on_attach,
-  capabilities = capabilities,
   init_options = {
     preferences = {
       disableSuggestions = true,
@@ -15,4 +13,4 @@ lspconfig.ts_ls.setup({
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "json" },
   root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
   single_file_support = true,
-})
+}

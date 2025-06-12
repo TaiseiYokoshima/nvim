@@ -1,5 +1,4 @@
-local lspconfig = require("lspconfig")
-local on_attach = require("lsp_setup.on_attach")
+local on_attach = require("lsp.on_attach")
 
 local settings = {
    Lua = {
