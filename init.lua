@@ -1,14 +1,13 @@
+-- strap utils to global table
 package.path = vim.fn.stdpath("config") .. "/utils/init.lua;" .. package.path
  _G.utils = require("utils")
 
+
 require("vim-options")
-utils.run("autocmds")
-
-require("core.lsp")
-require("core.lazy")
+require("autocmds")
 
 
--- run remaps
+require("core")
 utils.run_all_with_start("remaps", "general")
 
 

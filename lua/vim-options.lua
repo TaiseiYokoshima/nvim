@@ -32,7 +32,7 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 
 
-vim.cmd("set runtimepath+=~/.config/nvim")
+-- vim.cmd("set runtimepath+=~/.config/nvim")
 vim.g.mapleader = " "
 
 
