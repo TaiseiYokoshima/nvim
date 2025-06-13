@@ -28,5 +28,5 @@ return {
     },
     automatic_enable = true,
   },
-  enabled = true,
+  enabled = enable_mason,
 }

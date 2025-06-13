@@ -1,25 +1,15 @@
-local on_attach = utils.on_attach;
-local settings = {
-   Lua = {
-      runtime = {
-         version = "LuaJIT",
-      },
-
-
-      diagnostics = {
-         globals = { "vim" },
-      },
-
-      telemetry = {
-         enable = true,
-      }
-   },
-}
-
+local on_attach = utils.on_attach
 
 return {
    on_attach = on_attach,
-   settings = settings
+   cmd = { "lua-language-server" },
+   filetypes = { "lua" },
+   root_markers = {
+     ".git",
+     ".luacheckrc",
+   },
+   single_file_support = true,
+
 }
 
 
